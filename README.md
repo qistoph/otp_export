@@ -41,6 +41,17 @@ $ pip install -r requirements.txt
 $ ./parse.py '<OTP URL>'
 ```
 
+## Python sample 2 - export to yubikey
+
+Another sample I've included is [export2yubikey.py](export2yubikey.py). This script generates [ykman](https://developers.yubico.com/yubikey-manager/) commands to import the secrets into a yubikey.
+
+```
+$ ./export2yubikey.py '<OTP URL>'
+ykman oath add -o TOTP -d 6 -s SHA1 -p 30 "example1" INWGK5TFOIQFS33VEFBHK5BAJZXSAU3FMNZGK5A=
+ykman oath add -o TOTP -d 6 -s SHA1 -p 30 -i "some issuer" "example2" KN2G64BANF2CCTTPORUGS3THEBUGK4TF
+...
+```
+
 ## Format description
 
 See [OtpMigration.proto](OtpMigration.proto).
